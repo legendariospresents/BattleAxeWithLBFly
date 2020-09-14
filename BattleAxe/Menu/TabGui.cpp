@@ -95,7 +95,22 @@ void TabGui::renderLevel() {
 			xOffset + maxLength + 4.5f,
 			yOffset + textHeight);
 
-		MC_Color color = MC_Color(173, 216, 230);
+
+		//rgb stuff
+
+		static float rcolors[4];          // Rainbow color array RGBA
+		static float disabledRcolors[4];  // Rainbow Colors, but for disabled modules
+
+		// Rainbow color updates
+		{
+			Utils::ApplyRainbow(rcolors);  // Increase Hue of rainbow color array
+			disabledRcolors[0] = min(1, rcolors[0] * 0.4f + 0.2f);
+			disabledRcolors[1] = min(1, rcolors[1] * 0.4f + 0.2f);
+			disabledRcolors[2] = min(1, rcolors[2] * 0.4f + 0.2f);
+			disabledRcolors[3] = 1;
+		}
+
+		MC_Color color = MC_Color(rcolors); //font color tabgui
 
 		if (selected[renderedLevel].selectedItemId == i && level >= renderedLevel) {  // We are selected
 			if (renderedLevel == level) {                                             // Are we actually in the menu we are drawing right now?
@@ -143,7 +158,7 @@ void TabGui::renderLevel() {
 			selected[renderedLevel].rollback();
 		} else
 			selected[renderedLevel].rollin();
-		DrawUtils::fillRectangle(selectedPos, MC_Color(37, 74, 28), alphaVal);
+		DrawUtils::fillRectangle(selectedPos, MC_Color(37, 74, 28), alphaVal); //selected module color
 	}
 
 	// Cleanup

@@ -638,9 +638,9 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 						windowSize.x - margin + borderPadding,
 						windowSize.y - margin);
 
-					DrawUtils::drawRectangle(rect, MC_Color(102, 0, 0), 1.f, 2.f);
+					DrawUtils::drawRectangle(rect, MC_Color(rcolors), 1.f/*, 2.f*/);  //outline color of watermark
 					DrawUtils::fillRectangle(rect, MC_Color(rcolors), 1.f);
-					DrawUtils::drawText(vec2_t(rect.x + borderPadding, rect.y), &name, MC_Color(6, 15, 24), nameTextSize);
+					DrawUtils::drawText(vec2_t(rect.x + borderPadding, rect.y), &name, MC_Color(0, 0, 89), nameTextSize);  //watermark font color for watermark
 					DrawUtils::drawText(vec2_t(rect.x + borderPadding + nameLength, rect.w - 7), &version, MC_Color(0, 0, 0), versionTextSize);
 				}
 

@@ -33,13 +33,28 @@ void HudModule::onPostRender(C_MinecraftUIRenderContext* renderCtx) {
 	float startY = tabgui ? 6 * f : 0.f;
 	if(tabgui && scriptMgr.getNumEnabledScripts() > 0)
 		startY += f;
+
+	//rgb stuff
+
+	static float rcolors[4];          // Rainbow color array RGBA
+	static float disabledRcolors[4];  // Rainbow Colors, but for disabled modules
+
+	// Rainbow color updates
+	{
+		Utils::ApplyRainbow(rcolors);  // Increase Hue of rainbow color array
+		disabledRcolors[0] = min(1, rcolors[0] * 0.4f + 0.2f);
+		disabledRcolors[1] = min(1, rcolors[1] * 0.4f + 0.2f);
+		disabledRcolors[2] = min(1, rcolors[2] * 0.4f + 0.2f);
+		disabledRcolors[3] = 1;
+	}
+
 	{  // FPS
 		if (!(g_Data.getLocalPlayer() == nullptr || !this->fps)) {
 			std::string fpsText = "FPS: " + std::to_string(g_Data.getFPS());
 			vec4_t rectPos = vec4_t(2.5f, startY + 5.f * scale, len, startY + 15.f * scale);
 			vec2_t textPos = vec2_t(rectPos.x + 1.5f, rectPos.y + 1.f);
-			DrawUtils::fillRectangle(rectPos, MC_Color(1, 1, 1), 1.f);
-			DrawUtils::drawText(textPos, &fpsText, MC_Color(200, 200, 200), scale);
+			DrawUtils::fillRectangle(rectPos, MC_Color(32, 32, 32), 1.f);
+			DrawUtils::drawText(textPos, &fpsText, MC_Color(rcolors), scale);
 
 			startY += f;
 		}
@@ -49,8 +64,8 @@ void HudModule::onPostRender(C_MinecraftUIRenderContext* renderCtx) {
 			std::string cpsText = "CPS: " + std::to_string(g_Data.getLeftCPS()) + " - " + std::to_string(g_Data.getRightCPS());
 			vec4_t rectPos = vec4_t(2.5f, startY + 5.f * scale, len, startY + 15.f * scale);
 			vec2_t textPos = vec2_t(rectPos.x + 1.5f, rectPos.y + 1.f);
-			DrawUtils::fillRectangle(rectPos, MC_Color(1, 1, 1), 1.f);
-			DrawUtils::drawText(textPos, &cpsText, MC_Color(200, 200, 200), scale);
+			DrawUtils::fillRectangle(rectPos, MC_Color(32, 32, 32), 1.f);
+			DrawUtils::drawText(textPos, &cpsText, MC_Color(rcolors), scale);
 
 			startY += f;
 		}

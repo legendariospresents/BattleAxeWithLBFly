@@ -405,6 +405,20 @@ void DrawUtils::drawItem(C_ItemStack* item, vec2_t itemPos, float opacity, float
 }
 
 void DrawUtils::drawKeystroke(char key, vec2_t pos) {
+	//rgb stuff
+
+	static float rcolors[4];          // Rainbow color array RGBA
+	static float disabledRcolors[4];  // Rainbow Colors, but for disabled modules
+
+	// Rainbow color updates
+	{
+		Utils::ApplyRainbow(rcolors);  // Increase Hue of rainbow color array
+		disabledRcolors[0] = min(1, rcolors[0] * 0.45f + 0.10f);
+		disabledRcolors[1] = min(1, rcolors[1] * 0.4f + 0.5f);
+		disabledRcolors[2] = min(1, rcolors[2] * 0.2f + 0.9f);
+		disabledRcolors[3] = 1;
+	}
+
 	std::string keyString = Utils::getKeybindName(key);
 	C_GameSettingsInput* input = g_Data.getClientInstance()->getGameSettingsInput();
 	if (key == *input->spaceBarKey) keyString = "-";
@@ -415,9 +429,9 @@ void DrawUtils::drawKeystroke(char key, vec2_t pos) {
 		pos.y + 20.f);
 	vec2_t textPos(
 		(rectPos.x + (rectPos.z - rectPos.x) / 2) - (DrawUtils::getTextWidth(&keyString) / 2.f),
-		rectPos.y + 10.f - DrawUtils::getFont(Fonts::RUNE)->getLineHeight() / 2.f);
-	fillRectangle(rectPos, GameData::isKeyDown(key) ? MC_Color(37, 74, 28) : MC_Color(32, 32, 32), 1.f);
-	drawText(textPos, &keyString, MC_Color(255, 255, 255), 1.f, 1.f);
+		rectPos.y + 10.f - DrawUtils::getFont(Fonts::RUNE)->getLineHeight() / 2.f); //WASD thingy
+	fillRectangle(rectPos, GameData::isKeyDown(key) ? MC_Color(192, 192, 192) : MC_Color(rcolors), 1.f);  //WASD outline color
+	drawText(textPos, &keyString, MC_Color(1, 1, 1), 1.f, 1.f);
 }
 
 vec2_t DrawUtils::worldToScreen(const vec3_t& world) {
