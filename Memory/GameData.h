@@ -186,7 +186,7 @@ public:
 #endif
 	}
 	inline void setAllowWIPFeatures(bool enable = false) { isAllowingWIPFeatures = enable; };
-	inline bool isInjectorConnectionActive() { return injectorConnectionActive; };
+	inline bool isInjectorConnectionActive() { return true; }; //so ez lol but did u remove the obj connections because that uses the injector two
 	inline void setInjectorConnectionActive(bool isActive) {
 		if (injectorConnectionActive && !isActive) {
 			std::queue<BattleDataPacket> empty;
