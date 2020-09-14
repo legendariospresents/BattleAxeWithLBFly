@@ -529,6 +529,20 @@ void DrawUtils::drawHologram(vec3_t pos, std::string text, float size) {
 	float textWidth = getTextWidth(&text, size);
 	float textHeight = DrawUtils::getFont(Fonts::RUNE)->getLineHeight() * size;
 
+	//rgb stuff
+
+	static float rcolors[4];          // Rainbow color array RGBA
+	static float disabledRcolors[4];  // Rainbow Colors, but for disabled modules
+
+	// Rainbow color updates
+	{
+		Utils::ApplyRainbow(rcolors);  // Increase Hue of rainbow color array
+		disabledRcolors[0] = min(1, rcolors[0] * 0.45f + 0.10f);
+		disabledRcolors[1] = min(1, rcolors[1] * 0.4f + 0.5f);
+		disabledRcolors[2] = min(1, rcolors[2] * 0.2f + 0.9f);
+		disabledRcolors[3] = 1;
+	}
+
 	if (refdef->OWorldToScreen(origin, pos, textPos, fov, screenSize)) {
 		textPos.y -= textHeight;
 		textPos.x -= textWidth / 2.f;
@@ -538,6 +552,6 @@ void DrawUtils::drawHologram(vec3_t pos, std::string text, float size) {
 		rectPos.w = textPos.y + textHeight + 2.f * size;
 
 		fillRectangle(rectPos, MC_Color(0, 0, 0), 0.5f);
-		drawText(textPos, &text, MC_Color(255, 255, 255), size);
+		drawText(textPos, &text, MC_Color(rcolors), size);
 	}
 }

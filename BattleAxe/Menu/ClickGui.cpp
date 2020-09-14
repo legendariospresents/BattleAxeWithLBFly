@@ -39,8 +39,10 @@ static constexpr float paddingRight = 13.5f;
 static constexpr float crossSize = textHeight / 2.f;
 static constexpr float crossWidth = 0.3f;
 static constexpr float backgroundAlpha = 1;
-static const MC_Color selectedModuleColor = MC_Color(28, 107, 201);
-static const MC_Color moduleColor = MC_Color(13, 29, 48);
+
+
+static const MC_Color selectedModuleColor = MC_Color(29, 48, 13);
+static const MC_Color moduleColor = MC_Color(32, 32, 32);
 
 float currentYOffset = 0;
 float currentXOffset = 0;

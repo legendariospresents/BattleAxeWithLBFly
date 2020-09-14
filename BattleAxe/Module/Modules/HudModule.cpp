@@ -80,11 +80,11 @@ void HudModule::onPostRender(C_MinecraftUIRenderContext* renderCtx) {
 			vec4_t rectPos = vec4_t(2.5f, startY + 5.f * scale, len, startY + 35.f * scale);
 			vec2_t textPos = vec2_t(rectPos.x + 1.5f, rectPos.y + 1.f);
 			DrawUtils::fillRectangle(rectPos, MC_Color(32, 32, 32), 1.f);
-			DrawUtils::drawText(textPos, &coordsX, MC_Color(200, 200, 200), scale);
+			DrawUtils::drawText(textPos, &coordsX, MC_Color(rcolors), scale);
 			textPos.y += f;
-			DrawUtils::drawText(textPos, &coordsY, MC_Color(200, 200, 200), scale);
+			DrawUtils::drawText(textPos, &coordsY, MC_Color(rcolors), scale);
 			textPos.y += f;
-			DrawUtils::drawText(textPos, &coordsZ, MC_Color(200, 200, 200), scale);
+			DrawUtils::drawText(textPos, &coordsZ, MC_Color(rcolors), scale);
 		}
 	}
 	{  // ArmorHUD
