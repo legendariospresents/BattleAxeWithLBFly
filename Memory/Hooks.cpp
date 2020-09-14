@@ -623,11 +623,11 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 
 					static std::string name = "Battle Axe";
 #ifdef _DEBUG
-					static std::string version = "";
+					static std::string version = "Debug";
 #elif defined _BETA
 					static std::string version = "Beta";
 #else
-					static std::string version = "Battle Axe";
+					static std::string version = "";
 #endif
 
 					float nameLength = DrawUtils::getTextWidth(&name, nameTextSize);
@@ -638,7 +638,7 @@ __int64 Hooks::RenderText(__int64 a1, C_MinecraftUIRenderContext* renderCtx) {
 						windowSize.x - margin + borderPadding,
 						windowSize.y - margin);
 
-					DrawUtils::drawRectangle(rect, MC_Color(32, 32, 32), 1.f, 2.f);
+					DrawUtils::drawRectangle(rect, MC_Color(102, 0, 0), 1.f, 2.f);
 					DrawUtils::fillRectangle(rect, MC_Color(rcolors), 1.f);
 					DrawUtils::drawText(vec2_t(rect.x + borderPadding, rect.y), &name, MC_Color(6, 15, 24), nameTextSize);
 					DrawUtils::drawText(vec2_t(rect.x + borderPadding + nameLength, rect.w - 7), &version, MC_Color(0, 0, 0), versionTextSize);

@@ -95,7 +95,7 @@ void TabGui::renderLevel() {
 			xOffset + maxLength + 4.5f,
 			yOffset + textHeight);
 
-		MC_Color color = MC_Color(200, 200, 200);
+		MC_Color color = MC_Color(173, 216, 230);
 
 		if (selected[renderedLevel].selectedItemId == i && level >= renderedLevel) {  // We are selected
 			if (renderedLevel == level) {                                             // Are we actually in the menu we are drawing right now?
@@ -164,8 +164,8 @@ void TabGui::render() {
 	xOffset = 3;
 
 	// Render all categorys
-	renderLabel("Combat");
 	renderLabel("Player");
+	renderLabel("Combat");
 	renderLabel("Movement");
 	renderLabel("Visual");
 	renderLabel("World");
