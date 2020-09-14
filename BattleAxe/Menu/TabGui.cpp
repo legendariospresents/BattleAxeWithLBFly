@@ -179,10 +179,10 @@ void TabGui::render() {
 	xOffset = 3;
 
 	// Render all categorys
-	renderLabel("Player");
 	renderLabel("Combat");
-	renderLabel("Movement");
 	renderLabel("Visual");
+	renderLabel("Movement");
+	renderLabel("Player");
 	renderLabel("World");
 	renderLabel("Misc");
 	if(scriptMgr.getNumEnabledScripts() > 0)
