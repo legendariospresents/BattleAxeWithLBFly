@@ -27,11 +27,12 @@ struct ClickWindow {
 	float animation = 0;
 	const char* name;
 	std::map<unsigned int, std::shared_ptr<ClickModule>> moduleMap;
+
+	int yOffset = 0;
 };
 
 class ClickGui {
 private:
-
 	inline static std::shared_ptr<ClickWindow> getWindow(const char* id);
 	inline static std::shared_ptr<ClickModule> getClickModule(std::shared_ptr<ClickWindow> window, const char* id);
 
@@ -41,7 +42,7 @@ private:
 	static void renderCategory(Category category);
 	inline static void getModuleListByCategory(Category category, std::vector<std::shared_ptr<IModule>>* modList);
 
-	inline static const char* catToName(Category cat){
+	inline static const char* catToName(Category cat) {
 		const char* categoryName;
 
 		// Get Category Name
@@ -78,6 +79,7 @@ public:
 	static void render();
 	static void onKeyUpdate(int key, bool isDown);
 	static void onMouseClickUpdate(int key, bool isDown);
+	static void onWheelScroll(bool direction);  // true = up, false = down
 	static void onLoadConfig(void* confVoid);
 	static void onSaveConfig(void* confVoid);
 };
