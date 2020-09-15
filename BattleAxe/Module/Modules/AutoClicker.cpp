@@ -22,13 +22,13 @@ void AutoClicker::onTick(C_GameMode* gm) {
 
 		if (Odelay >= delay) {
 			auto selectedItemId = localPlayer->getSelectedItemId();
-			if (sword && !(selectedItemId == 268 || selectedItemId == 267 || selectedItemId == 272 || selectedItemId == 276 || selectedItemId == 283 /*swords*/
-						   || selectedItemId == 271 || selectedItemId == 275 || selectedItemId == 279 || selectedItemId == 286 || selectedItemId == 258 /*axes*/))
+			if (sword && !(selectedItemId == 268 || selectedItemId == 267 || selectedItemId == 272 || selectedItemId == 276 || selectedItemId == 283 || selectedItemId == 743 /*swords*/
+						   || selectedItemId == 271 || selectedItemId == 275 || selectedItemId == 279 || selectedItemId == 286 || selectedItemId == 258 || selectedItemId == 746 /*axes*/))
 				return;
 
 			g_Data.leftclickCount++;
 
-			if(!moduleMgr->getModule<NoSwing>()->isEnabled()) 
+			if (!moduleMgr->getModule<NoSwing>()->isEnabled())
 				localPlayer->swingArm();
 
 			if (target != 0)
