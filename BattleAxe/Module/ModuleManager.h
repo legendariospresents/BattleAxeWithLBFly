@@ -10,7 +10,6 @@
 #include "../../Memory/GameData.h"
 
 #include "Modules/Aimbot.h"
-#include "Modules/ItemBurner.h"
 #include "Modules/AirJump.h"
 #include "Modules/AirSwim.h"
 #include "Modules/AntiBot.h"

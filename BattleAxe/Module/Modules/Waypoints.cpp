@@ -16,20 +16,17 @@ void Waypoints::onPreRender(C_MinecraftUIRenderContext* renderCtx) {
 
 	if (localPlayer != nullptr && GameData::canUseMoveKeys()) {
 		for (const auto& wp : waypoints) {
-			float dist = wp.second.dist(*g_Data.getLocalPlayer()->getPos());
+			vec3_t pos = wp.second;
+			float dist = pos.dist(*g_Data.getLocalPlayer()->getPos());
 
 			std::ostringstream out;
 			out.precision(2);
 			out << wp.first << " (" << std::fixed << dist << " m)";
 
-			DrawUtils::drawHologram(wp.second, out.str(), fmax(size, 3.f / dist));
+			DrawUtils::drawHologram(pos.add(0, 1.68, 0), out.str(), fmax(size, 3.f / dist));
 			DrawUtils::flush();
 		}
 	}
-}
-
-void Waypoints::onEnable() {
-	waypoints["Spawn"] = vec3_t(0.5, (double)69, 0.5);
 }
 
 using json = nlohmann::json;

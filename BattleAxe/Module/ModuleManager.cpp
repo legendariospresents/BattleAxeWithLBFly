@@ -33,7 +33,6 @@ void ModuleManager::initModules() {
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Glide()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new EditionFaker()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Phase()));
-		this->moduleList.push_back(std::shared_ptr<IModule>(new ItemBurner()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Freecam()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new AutoSprint()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Tracer()));

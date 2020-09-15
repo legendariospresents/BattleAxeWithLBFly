@@ -41,4 +41,11 @@ public:
 		}
 		return false;
 	}
+
+	vec3_t* getWaypoint(std::string name) {
+		if (waypoints.find(name) == waypoints.end())
+			return nullptr;
+
+		return &waypoints[name];
+	};
 };

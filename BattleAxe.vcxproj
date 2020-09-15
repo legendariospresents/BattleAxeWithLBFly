@@ -273,7 +273,6 @@
     <ClCompile Include="BattleAxe\Module\ModuleManager.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\Waypoints.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\Aimbot.cpp" />
-    <ClCompile Include="BattleAxe\Module\Modules\ItemBurner.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\AirJump.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\AirStuck.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\AirSwim.cpp" />
@@ -449,7 +448,6 @@
     <ClInclude Include="BattleAxe\Module\ModuleManager.h" />
     <ClInclude Include="BattleAxe\Module\Modules\Waypoints.h" />
     <ClInclude Include="BattleAxe\Module\Modules\Aimbot.h" />
-    <ClCompile Include="BattleAxe\Module\Modules\ItemBurner.h" />
     <ClInclude Include="BattleAxe\Module\Modules\AirJump.h" />
     <ClInclude Include="BattleAxe\Module\Modules\AirStuck.h" />
     <ClInclude Include="BattleAxe\Module\Modules\AirSwim.h" />
