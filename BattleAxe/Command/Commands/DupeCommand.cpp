@@ -16,26 +16,31 @@ bool DupeCommand::execute(std::vector<std::string>* args) {
 
 	int count = item->count;
 	bool isGive = true;
+
 	if (args->size() > 1)
 		item->count = assertInt(args->at(1));
 	if (args->size() > 2)
 		isGive = static_cast<bool>(assertInt(args->at(2)));
+
 	if (isGive) {
 		int slot = inv->getFirstEmptySlot();
-	}
 
-	C_InventoryAction* firstAction = nullptr;
-	C_InventoryAction* secondAction = nullptr;
-	firstAction = new C_InventoryAction(0, item, nullptr, 507, 99999);
-	secondAction = new C_InventoryAction(slot, nullptr, item);
+		C_InventoryAction* firstAction = nullptr;
+		C_InventoryAction* secondAction = nullptr;
 
-	transactionManager->addInventoryAction(*firstAction);
-	transactionManager->addInventoryAction(*secondAction);
-	inv->addItemToFirstEmptySlot(item);
-}
-else g_Data.getLocalPlayer()->setOffhandSlot(item);
-if (args->size() > 1)
-	item->count = count;
-clientMessageF("%sSuccessfully duplicated the item!", GREEN);
-return true;
+		firstAction = new C_InventoryAction(0, item, nullptr, 507, 99999);
+		secondAction = new C_InventoryAction(slot, nullptr, item);
+
+		transactionManager->addInventoryAction(*firstAction);
+		transactionManager->addInventoryAction(*secondAction);
+
+		inv->addItemToFirstEmptySlot(item);
+	} else
+		g_Data.getLocalPlayer()->setOffhandSlot(item);
+
+	if (args->size() > 1)
+		item->count = count;
+
+	clientMessageF("%sSuccessfully duplicated the item!", GREEN);
+	return true;
 }
