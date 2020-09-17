@@ -74,6 +74,7 @@
 #include "Modules/Tower.h"
 #include "Modules/Tracer.h"
 #include "Modules/TriggerBot.h"
+#include "Modules/LifeboatFly.h"
 #include "Modules/Xray.h"
 #include "Modules/NightMode.h"
 #include "Modules/NoSwing.h"

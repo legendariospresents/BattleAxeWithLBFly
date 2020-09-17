@@ -39,6 +39,7 @@ void ModuleManager::initModules() {
 		this->moduleList.push_back(std::shared_ptr<IModule>(new BowAimbot()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Scaffold()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new NoFall()));
+		this->moduleList.push_back(std::shared_ptr<IModule>(new LifeboatFly()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Blink()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new Nuker()));
 		this->moduleList.push_back(std::shared_ptr<IModule>(new InstaBreak()));
