@@ -272,6 +272,8 @@
     <ClCompile Include="BattleAxe\Menu\TabGui.cpp" />
     <ClCompile Include="BattleAxe\Module\ModuleManager.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\Waypoints.cpp" />
+    <ClCompile Include="BattleAxe\Module\Modules\MineplexDisabler.cpp" />
+    <ClCompile Include="BattleAxe\Module\Modules\AntiHunger.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\LifeboatFly.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\Aimbot.cpp" />
     <ClCompile Include="BattleAxe\Module\Modules\AirJump.cpp" />
@@ -448,6 +450,8 @@
     <ClInclude Include="BattleAxe\Menu\TabGui.h" />
     <ClInclude Include="BattleAxe\Module\ModuleManager.h" />
     <ClInclude Include="BattleAxe\Module\Modules\Waypoints.h" />
+    <ClCompile Include="BattleAxe\Module\Modules\MineplexDisabler.h" />
+    <ClCompile Include="BattleAxe\Module\Modules\AntiHunger.h" />
     <ClInclude Include="BattleAxe\Module\Modules\LifeboatFly.h" />
     <ClInclude Include="BattleAxe\Module\Modules\Aimbot.h" />
     <ClInclude Include="BattleAxe\Module\Modules\AirJump.h" />

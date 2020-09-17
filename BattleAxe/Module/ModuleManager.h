@@ -20,6 +20,8 @@
 #include "Modules/AutoSprint.h"
 #include "Modules/AutoTotem.h"
 #include "Modules/Fucker.h"
+#include "Modules/MineplexDisabler.h"
+#include "Modules/AntiHunger.h"
 #include "Modules/Bhop.h"
 #include "Modules/Blink.h"
 #include "Modules/BowAimbot.h"
